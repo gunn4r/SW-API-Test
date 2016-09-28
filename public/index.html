@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="swapi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js" charset="utf-8"></script>
+  <script src="app.js" charset="utf-8"></script>
+</head>
+<body ng-controller="mainCtrl">
+  <style>
+    body{
+      padding:50px;
+    }
+    .wrapper{
+      width: 70%;
+      margin: 0 auto;
+    }
+    .controls {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    .item {
+      padding: 20px;
+      border: 1px solid #f7f7f7;
+      box-shadow: 0 0 10px rgba(0,0,0,.4);
+      margin-bottom: 15px;
+    }
+    .name {
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .results-count{
+      margin: 10px 0;
+    }
+
+  </style>
+  <div class="wrapper">
+    <div class="controls">
+      <button ng-click="getData('people')">People</button>
+      <button ng-click="getData('starships')">Ships</button>
+      <button ng-click="getData('planets')">Planets</button>
+      <div class="results-count" ng-show="swData">
+        <h3>TOTAL RESULTS: {{swData.count}}</h3>
+      </div>
+    </div>
+    <div class="sw-data">
+      <div class="item" ng-repeat="item in swData.results">
+        <div class="name">{{item.name}}</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
